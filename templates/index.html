@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Predictor</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <!-- Google Font - Rajdhani -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <!-- Nav Bar -->
+
+    
+    <div class="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+    
+            <a class="navbar-brand" href="">&#10010;  Diabetes Predictor</a>
+      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analyzer">Analyzer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#predictor">Predictor</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <br><br><br><br>
+
+    
+    <!-- Analyzer -->
+
+    <div class="analyzer" id="analyzer">
+        <div class="row">
+            <div class="left-column col-lg-7 col-md-12">
+                <h1>&#10137; What is Diabetes ?</h1>
+
+                <p>Acccording to NIH, "Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high.
+                     Blood glucose is your main source of energy and comes from the food you eat. 
+                     Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to be used for energy. Sometimes your body doesn’t make enough—or any—insulin or doesn’t use insulin well. Glucose then stays in your blood and doesn’t reach your cells.Over time, having too much glucose in your blood can cause health problems. Although diabetes has no cure, you can take steps to manage your diabetes and stay healthy.
+                    Sometimes people call diabetes “a touch of sugar” or “borderline diabetes.”
+
+                </p>
+                <p>
+                    These terms suggest that someone doesn’t really have diabetes or has a less serious case, but every case of diabetes is serious.
+                     Some of the risk factors for getting diabetes include being overweight or obese, leading a sedentary lifestyle, a family history of diabetes, hypertension (high blood pressure), and low levels of the "good" cholesterol (HDL) and elevated levels of triglycerides in the blood.
+                     <p>There are three main types of diabetes – type 1, type 2 and gestational.
+                     Type 2 diabetes is more common in adults and accounts for around 90% of all diabetes cases. 
+                     When you have type 2 diabetes, your body does not make good use of the insulin that it produces. 
+                     The cornerstone of type 2 diabetes treatment is healthy lifestyle,
+                      including increased physical activity and healthy diet. 
+                     </p>
+                </p>
+
+                <a href="{{ url_for('static', filename='tableau.html')}}" ><button type="button" class="btn btn-dark btn-lg"> Analysis </button></a>
+            </div>
+
+            <div class="right-column col-lg-5 col-md-12">
+                <img class="image" src="{{ url_for('static', filename='bulb.png')}}" alt="Diabetes Image">
+            </div>
+
+        </div>
+        
+    </div>
+    <hr>
+    <br><br><br><br>
+
+    <div class="predictor" id="predictor">
+        <div class="row">
+
+            <div class="left-column col-lg-6 col-md-12">
+                <img class="image" src="{{ url_for('static', filename='health1.png')}}" alt="Diabetes Image">
+            </div>
+
+            <div class="right-column col-lg-6 col-md-12">
+                <h1>&#10137; Diabetes Predictor</h1>
+                <br><br>
+
+                <form action="{{ url_for('predict') }}" method="post">
+                    <label for="pregnancies"> Pregnancies &emsp;&emsp;&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input id="first" name="Pregnancies" placeholder="Number of Pregnancies" required="required">
+                    <br><br>
+
+                    <label for="Glucose"> Glucose&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="Glucose" id="glucose" placeholder="Glucose">
+                    <br><br>
+
+                    <label for="bloodpressure"> Blood Pressure &emsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="BloodPressure" id="bloodpressure"placeholder="(mm Hg)">
+                    <br><br>
+
+                    <label for="skinthickness"> Skin thickness &emsp;&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="SkinThickness" id="skinthickness"placeholder="(mm)">
+                    <br><br>
+
+                    <label for="insulin"> Insulin &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="Insulin" id="insulin" placeholder="(mu U/ml)">
+                    <br><br>
+
+                    <label for="bmi"> Body Mass Index &nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="BMI" id="bmi" placeholder="weight in kg/(height in m)^2">
+                    <br><br>
+
+                    <label for="dpf"> Diabetes Pedigree <br>Function &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="DiabetesPedigreeFunction" id="DPF"placeholder="DPF">
+                    <br><br>
+
+                    <label for="age"> Age &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                    <input type="text" name="Age"  id="age"placeholder="In Years">
+                    <br><br>
+
+                    <input type="submit" value="Submit" class="btn btn-dark btn-lg">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+
+</body>
+
+<!-- Footer -->
+
+
+
+<Footer class="white-section" id="footer">
+    <hr>
+
+    <a href="https://www.facebook.com/beingvirussanjana/"><i class="social-icon fab fa-facebook-f"></i></a>
+
+    <a href="https://www.instagram.com/__voonasanjana__/"><i class="social-icon fab fa-instagram"></i></a>
+    <a href="voonasanjana1043@gmail.com"><i class="social-icon fas fa-envelope"></i></a>
+
+    <p>@Sanjana</p>
+
+    <hr>
+
+</Footer>
+<style>
+    body {
+    text-align: center;
+    background-color: #2c3057;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    font-weight: 700;
+    color: #fff;
+}
+
+p {
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    font-weight: bold;
+}
+
+hr {
+    color: #fff;
+    size: 20px;
+}
+
+hr:not([size]) {
+    height: 10px;
+}
+
+.btn {
+    height: 80px;
+    width: 180px;
+    margin: 5% 0 5% 30%;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/* Navigation Bar  */
+.navigation {
+    width: 101%;
+}
+
+.navbar {
+    padding: 2rem 4.5rem 2rem 4.5rem;
+    background-color: #160433;
+}
+
+
+
+
+.navbar-brand {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-left: 5rem;
+}
+
+.nav-item {
+    padding: 0 25px;
+    margin: 0 10px;
+}
+
+.nav-link {
+    font-size: 2rem;
+}
+
+/* Analyzer */
+.analyzer {
+    text-align: left;
+}
+
+.left-column {
+    padding-left: 75px;
+}
+
+.analyzer h1 {
+    font-size : 700;
+}
+
+.col-md-12 {
+    text-align : center;
+}
+
+.analyzer img {
+    width: 90%;
+}
+
+.col-lg-7 {
+    text-align: left;
+}
+
+.analyzer p {
+    font-size: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+
+/* Predictor */
+
+.predictor {
+    text-align: left;
+}
+
+.predictor h1 {
+    font-size : 700;
+}
+
+label {
+    text-align: left;
+    color: #fff;
+    font-size: 50px;
+}
+
+input {
+    height: 50px;
+    width: 500px;
+    background-color: #160433;
+    border: none;
+    border-radius: 10;
+    color: #fff;
+    text-align: center;
+}
+
+.predictor form input {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.predictor img {
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+/* Footer */
+Footer {
+    background-color: #0d0e1b;
+    font-size: 20px;
+    width: 101%;
+    bottom: 0;
+}
+
+
+
+.social-icon {
+    margin: 20px 10px;
+    color: #fff;
+}
+
+</style>
+
+</html>
