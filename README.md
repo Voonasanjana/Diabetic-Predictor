@@ -12,6 +12,6 @@ Machine Learning Web App Built Using Flask Deployed on Heroku
 • If you want to view the deployed model, click on the following link:
 
 
-   https://diabetes-predictormodel.herokuapp.com/predict
+   https://diabetes-predictormodel.herokuapp.com/
 
 • Please do ⭐ the repository, if you like this.😊
