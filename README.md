@@ -1,5 +1,7 @@
 # Diabetic-Predictor
 Machine Learning Web App Built Using Flask Deployed on Heroku
+
+
 <img src='https://github.com/Voonasanjana/Diabetic-Predictor/blob/main/static/Screenshot%20(50).png'>
 
 <img src="https://github.com/Voonasanjana/Diabetic-Predictor/blob/main/static/Screenshot%20(54).png">
